@@ -1,0 +1,30 @@
+<strong>Title: </strong>
+<%= @list.title %>
+
+<br>
+
+<strong>Description</strong>
+<%= @list.description %>
+
+<br>
+<%= link_to "Edit", edit_admin_list_path(@list) %>
+
+<br><br>
+<br>
+<% @wishes.each do |wish| %>
+  <p>
+    <strong>Title: </strong>
+    <%= wish.title %>
+  <br>
+    <strong>Price: </strong>
+    <%= wish.price %>
+  <br>
+    <strong>Comment: </strong>
+    <%= wish.comment %>
+  <br>
+    <%= link_to "Edit",  edit_admin_list_wish_path(wish.list, wish)%>
+    <%= link_to "Delete",  admin_list_wish_path(wish.list, wish), method: :delete, data: {confirm: 'Are you sure?'} %>
+  </p>
+<% end %>
+
+<%= paginate @wishes %>

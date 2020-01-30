@@ -1,0 +1,16 @@
+<h1>admin LISTSSSSSSS</h1>
+
+
+<table>
+  <% @lists.each do |list| %>
+  <tr>
+    <td><b><%= list.title %></b></td>
+    <td><%= list.description %></td>
+    <td><%= link_to "Show", admin_list_path(list) %></td>
+    <td><%= link_to "Edit", edit_admin_list_path(list) %></td>
+    <td><%= link_to "Delete", admin_list_path(list), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= paginate @lists %>
