@@ -1,6 +1,6 @@
 <h1>edit WISH</h1>
 
-<%= form_with(model: [@list, @wish], local: true) do |form| %>
+<%= form_with(model: [:admin, @list, @wish], local: true) do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>

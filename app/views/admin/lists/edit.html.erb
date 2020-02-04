@@ -1,6 +1,6 @@
 <h1>edit admin LIST</h1>
 
-<%= form_with(model: @list) do |form| %>
+<%= form_with model: [:admin, @list] do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>

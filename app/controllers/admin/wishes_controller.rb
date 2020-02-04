@@ -10,7 +10,7 @@ class Admin::WishesController < Admin::BaseController
     @wish = @list.wishes.find(params[:id])
 
     if @wish.update(wish_params)
-      redirect_to list_path(@list)
+      redirect_to admin_list_path(@list)
     else
       render 'edit'
     end
@@ -20,7 +20,7 @@ class Admin::WishesController < Admin::BaseController
     @list = List.find(params[:list_id])
     @wish = @list.wishes.find(params[:id])
     @wish.destroy
-    redirect_to list_path(@list)
+    redirect_to admin_list_path(@list)
   end
 
   private
