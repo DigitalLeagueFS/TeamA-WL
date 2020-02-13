@@ -10,16 +10,48 @@
 </head>
 
 <body>
-<%= link_to "Main", root_path %>
-<% if user_signed_in? %>
-  <%= image_tag current_user.avatar.url(:small) %>
-  <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-<% end %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "Main", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Lists", lists_path, class: "nav-link" %>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav pull-xs-right">
+        <% if user_signed_in? %>
+          <li><%= image_tag current_user.avatar.url(:medium), class: 'avatar' %></li>
+          <li class="nav-item active">
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item active">
+            <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 
-<%= yield %>
+<div class="container">
+    <p class="notice"><%= notice %></p>
+  <!--<% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>-->
+
+  <%= yield %>
+</div>
+
 </body>
 </html>

@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'kaminari'
 gem 'paperclip', '~> 6.0.0'
+gem 'bootstrap', '~> 4.4.1'
+gem 'bootstrap4-kaminari-views'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
